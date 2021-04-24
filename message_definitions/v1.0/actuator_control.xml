@@ -32,9 +32,11 @@
       </message>
       <!-- SERVOCNTRL_VTOL_ARM_STATE: message that indicates the current position of the VTOL arms. 
         For each of the four arms, the message should report whether the arm is fully deployed, fully
-        retracted, or at an undetermined position.-->
+        retracted, or at an undetermined position. The message should also report if there was an
+        error encountered in trying to move the arms (either true or false)-->
       <message id="" name="SERVOCNTRL_VTOL_ARM_STATE">
         <description></description>
+        <field type="uint8_t" name=""></field>
         <field type="uint8_t" name=""></field>
         <field type="uint8_t" name=""></field>
         <field type="uint8_t" name=""></field>
