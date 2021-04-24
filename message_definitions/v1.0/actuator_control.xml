@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<mavlink>
+
+    <include>common.xml</include>
+    <!-- <version>9</version> -->
+    <dialect>8</dialect>
+
+    <enums>
+    <enum name="TEMPLATE">
+      <!-- TEMPLATE FOR ENUM DEFINITION, remove if not needed -->
+      <entry name="TEMPLATE" value="">
+        <description></description>
+        <param index="1">Empty</param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+    </enum>
+
+    <messages>
+      <!-- SERVOCNTRL_POWER_STATUS: reports the status of the power available to the servo controller.
+        Possible power levels could be sufficient (enough to power both the board and the servos), 
+        insufficient (enough to power the board but possibly not enough to power the servos), or
+        critical (not enough to power the board, or very close to that point). An enum would probably
+        be best for expressing this information. -->
+      <message id="" name="SERVOCNTRL_POWER_STATUS">
+        <description></description>
+        <field type="uint8_t" name=""></field>
+      </message>
+      <!-- SERVOCNTRL_VTOL_ARM_STATE: message that indicates the current position of the VTOL arms. 
+        For each of the four arms, the message should report whether the arm is fully deployed, fully
+        retracted, or at an undetermined position.-->
+      <message id="" name="SERVOCNTRL_VTOL_ARM_STATE">
+        <description></description>
+        <field type="uint8_t" name=""></field>
+        <field type="uint8_t" name=""></field>
+        <field type="uint8_t" name=""></field>
+        <field type="uint8_t" name=""></field>
+      </message>
+    </messages>
+    
+
+</mavlink>
