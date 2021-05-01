@@ -5,19 +5,6 @@
     <dialect>8</dialect>
 
     <enums>
-        <enum name="MAV_CMD">
-          <description>Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data.</description>
-          <entry value="16" name="MAV_CMD_NAV_WAYPOINT">
-            <description>Navigate to waypoint.</description>
-            <param index="1">Hold time in decimal seconds. (ignored by fixed wing, time to stay at waypoint for rotary wing)</param>
-            <param index="2">Acceptance radius in meters (if the sphere with this radius is hit, the waypoint counts as reached)</param>
-            <param index="3">0 to pass through the WP, if &gt; 0 radius in meters to pass by WP. Positive value for clockwise orbit, negative value for counter-clockwise orbit. Allows trajectory control.</param>
-            <param index="4">Desired yaw angle at waypoint (rotary wing). NaN for unchanged.</param>
-            <param index="5">Latitude</param>
-            <param index="6">Longitude</param>
-            <param index="7">Altitude</param>
-          </entry>
-        </enum>
         <enum name="POWER_STATUS">
           <!-- TEMPLATE FOR ENUM DEFINITION, remove if not needed -->
           <entry name="SUFFICIENT" value="00">
@@ -32,6 +19,7 @@
           <entry name="ERROR" value="11">
             <description>Error obtaining POWER_STATUS</description>
           </entry>
+        </enum>
         <enum name = "VTOL_ARM_STATUS">
             <entry name = "DEPLOYED" value="00">
                 <description>VTOL_ARM fully deployed</description>
@@ -42,9 +30,7 @@
             <entry name = "UNDETERMINED" value="10">
                 <description>Error in obtaining VTOL_ARM_STATUS</description>
             </entry>
-            <entry name="ERROR" value="11">
-                <description>Error in deploying VTOL_ARM</description>
-            </entry>
+        </enum>
     </enums>
     
       <!-- ALL IDS MUST BE GREATER THAN 43000 -->
@@ -68,14 +54,8 @@
         <field type="VTOL_ARM_STATUS" name="vtol_arm_1">Deployment status for 1st VTOL arm</field>
         <field type="VTOL_ARM_STATUS" name="vtol_arm_2">Deployment status for 2nd VTOL arm</field>
         <field type="VTOL_ARM_STATUS" name="vtol_arm_3">Deployment status for 3rd VTOL arm</field>
-        <field type="VTOL_ARM_STATUS" name="vtol_arm_4"Deployment status for 4th VTOL arm></field>
-      </message>
-      <message id="43002" name="SERVOCNTRL_VTOL_ARM_STATUS">
-        <description>Indicates current position of VTOL_ARMS, either being DEPLOYED, RETRACTED, or UNDETERMINED,</description>
-        <field type="VTOL_ARM_STATUS" name="vtol_arm_1">Deployment status for 1st VTOL arm</field>
-        <field type="VTOL_ARM_STATUS" name="vtol_arm_2">Deployment status for 2nd VTOL arm</field>
-        <field type="VTOL_ARM_STATUS" name="vtol_arm_3">Deployment status for 3rd VTOL arm</field>
-        <field type="VTOL_ARM_STATUS" name="vtol_arm_4"Deployment status for 4th VTOL arm></field>
+        <field type="VTOL_ARM_STATUS" name="vtol_arm_4">Deployment status for 4th VTOL arm</field>
+        <field type="uint8_t" name = "vtol_arm_error">Error occured w/ a vtol arm</field>
       </message>
     </messages>
     
